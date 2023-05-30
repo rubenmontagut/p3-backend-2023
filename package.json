@@ -1,0 +1,30 @@
+{
+  "name": "p3-backend-2023",
+  "version": "1.0.0",
+  "description": "Servidor glovo hecho con express, prisma y typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "ruben.montagut",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^4.15.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.2.5",
+    "nodemon": "^2.0.22",
+    "prisma": "^4.15.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  },
+  "prisma": {
+    "seed": "ts-node-esm src/seed.ts"
+  }
+}
