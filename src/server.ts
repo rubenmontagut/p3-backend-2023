@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 app.get("/", async (req, res) => {
-  res.status(200).send("hi!");
+  res.status(200).json("hi!");
 });
 
 const { SERVER_PORT } = process.env;

@@ -4,7 +4,7 @@
   "description": "Servidor glovo hecho con express, prisma y typescript",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-esm src/server.ts",
+    "dev": "nodemon src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
