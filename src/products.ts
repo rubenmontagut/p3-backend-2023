@@ -25,4 +25,16 @@ router.post(
   })
 );
 
+//s'hauria d'afegir una autorització per a verificar que es un producte del restaurant que crida a la API
+router.delete(
+  "/:id",
+  errorChecked(async (req, res) => {
+    const { id } = req.params;
+    const deletedProduct = await prisma.product.delete({
+      where: { id: parseInt(id) },
+    });
+    res.status(200).json(deletedProduct);
+  })
+);
+
 export default router;

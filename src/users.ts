@@ -1,6 +1,7 @@
 import { Request, Router } from "express";
 import prisma from "./prisma-client.js";
 import { errorChecked } from "./utils.js";
+import ordersRouter from "./orders.js";
 
 const router = Router();
 
@@ -59,5 +60,7 @@ router.delete(
     res.status(200).json(deletedUser);
   })
 );
+
+router.use("/:id/orders", ordersRouter);
 
 export default router;

@@ -2,6 +2,7 @@ import { Request, Router } from "express";
 import prisma from "./prisma-client.js";
 import { errorChecked } from "./utils.js";
 import productsRouter from "./products.js";
+import ordersRouter from "./orders.js";
 
 const router = Router();
 
@@ -62,5 +63,6 @@ router.delete(
 );
 
 router.use("/:id/products", productsRouter);
+router.use("/:id/orders", ordersRouter);
 
 export default router;

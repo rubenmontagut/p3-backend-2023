@@ -16,7 +16,7 @@ model User {
   lastName  String
   email     String   @unique
   createdAt DateTime @default(now())
-  // orders    Order[]
+  orders    Order[]
 }
 
 model Restaurant {
@@ -24,7 +24,7 @@ model Restaurant {
   name     String
   address  String
   products Product[]
-  // orders   Order[]
+  orders   Order[]
 }
 
 model Product {
@@ -34,34 +34,15 @@ model Product {
   price        Float
   restaurantId Int
   restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
-  // orderDetails OrderDetails[]
-  // Extra        Extra[]
+  orders       Order[]
 }
 
-// model Extra {
-//   id             Int           @id @default(autoincrement())
-//   name           String
-//   price          Float
-//   productId      Int
-//   product        Product       @relation(fields: [productId], references: [id])
-//   OrderDetails   OrderDetails? @relation(fields: [orderDetailsId], references: [id])
-//   orderDetailsId Int?
-// }
-
-// model Order {
-//   id           Int            @id @default(autoincrement())
-//   user         User           @relation(fields: [userId], references: [id])
-//   restaurant   Restaurant     @relation(fields: [restaurantId], references: [id])
-//   orderDetails OrderDetails[]
-//   userId       Int
-//   restaurantId Int
-// }
-
-// model OrderDetails {
-//   id        Int     @id @default(autoincrement())
-//   orderId   Int
-//   order     Order   @relation(fields: [orderId], references: [id])
-//   productId Int
-//   product   Product @relation(fields: [productId], references: [id])
-//   extras    Extra[]
-// }
+model Order {
+  id           Int        @id @default(autoincrement())
+  user         User       @relation(fields: [userId], references: [id])
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+  userId       Int
+  restaurantId Int
+  product      Product    @relation(fields: [productId], references: [id])
+  productId    Int
+}
