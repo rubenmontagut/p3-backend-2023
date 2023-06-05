@@ -42,7 +42,35 @@ await prisma.product.createMany({
       name: "Vi DO Terra Alta",
       price: 8.5,
       description: "Botella de vi garnatxa blanca",
-      restaurantId: 1,
+      restaurantId: r1.id,
     },
   ],
 });
+
+// await prisma.extra.createMany({
+//   data: [
+//     {
+//       name: "Formatge cheddar",
+//       price: 1.5,
+//       productId: 1,
+//     },
+//     {
+//       name: "Taula d'embotits i formatges",
+//       price: 12,
+//       productId: 2,
+//     },
+//   ],
+// });
+
+// await prisma.order.create({
+//   data: {
+//     userId: 1,
+//     restaurantId: 1,
+//     products: {
+//       connect: [{ id: 1 }, { id: 2 }],
+//     },
+//   },
+//   include: {
+//     products: true,
+//   },
+// });
